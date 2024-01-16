@@ -1339,8 +1339,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-example-jwt">
 <a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-example-jwt" class="section-name selfRef">Example JWT</a>
         </h3>
-<p id="section-5.5-1">The JWT/JWS header:
-<code>
+<p id="section-5.5-1">The JWT/JWS header:<a href="#section-5.5-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.5-2">
+<pre>
 {
     "typ" : "JWT",
     "alg" : "ECDH-P256-HS256",
@@ -1348,20 +1349,25 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
     "epk" : &lt;JWK used for ECDH&gt;,
     "kid" : &lt;key ID of Verifying Party&gt;
 }
-</code><a href="#section-5.5-1" class="pilcrow">¶</a></p>
-<p id="section-5.5-2">The JWT/JWS payload:
-<code>
+</pre><a href="#section-5.5-2" class="pilcrow">¶</a>
+</div>
+<p id="section-5.5-3">The JWT/JWS payload:<a href="#section-5.5-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.5-4">
+<pre>
 {
     "iss" : "https://example.as.com",
     "iat" : "1701870613",
     "given_name" : "Erika",
     "family_name" : "Mustermann"
 }
-</code><a href="#section-5.5-2" class="pilcrow">¶</a></p>
-<p id="section-5.5-3">The JWT/JWS signature:
-<code>
+</pre><a href="#section-5.5-4" class="pilcrow">¶</a>
+</div>
+<p id="section-5.5-5">The JWT/JWS signature:<a href="#section-5.5-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.5-6">
+<pre>
 base64-encoded MAC
-</code><a href="#section-5.5-3" class="pilcrow">¶</a></p>
+</pre><a href="#section-5.5-6" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 </section>

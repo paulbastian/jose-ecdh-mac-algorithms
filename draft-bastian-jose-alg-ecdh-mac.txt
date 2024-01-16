@@ -227,14 +227,28 @@ Table of Contents
 
 5.5.  Example JWT
 
-   The JWT/JWS header: { "typ" : "JWT", "alg" : "ECDH-P256-HS256", "x5c"
-   : <issuer certificate chain that signs the epk>, "epk" : <JWK used
-   for ECDH>, "kid" : <key ID of Verifying Party> }
+   The JWT/JWS header:
 
-   The JWT/JWS payload: { "iss" : "https://example.as.com", "iat" :
-   "1701870613", "given_name" : "Erika", "family_name" : "Mustermann" }
+   {
+       "typ" : "JWT",
+       "alg" : "ECDH-P256-HS256",
+       "x5c" : <issuer certificate chain that signs the epk>,
+       "epk" : <JWK used for ECDH>,
+       "kid" : <key ID of Verifying Party>
+   }
 
-   The JWT/JWS signature: base64-encoded MAC
+   The JWT/JWS payload:
+
+   {
+       "iss" : "https://example.as.com",
+       "iat" : "1701870613",
+       "given_name" : "Erika",
+       "family_name" : "Mustermann"
+   }
+
+   The JWT/JWS signature:
+
+   base64-encoded MAC
 
 6.  Security Considerations
 
