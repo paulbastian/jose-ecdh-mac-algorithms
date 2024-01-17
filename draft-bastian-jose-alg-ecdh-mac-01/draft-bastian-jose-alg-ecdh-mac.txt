@@ -4,8 +4,8 @@
 
 Javascript Object Signing and Encryption                      P. Bastian
 Internet-Draft                                      Bundesdruckerei GmbH
-Intended status: Informational                           16 January 2024
-Expires: 19 July 2024
+Intended status: Informational                           17 January 2024
+Expires: 20 July 2024
 
 
              JOSE algorithms for ECDH-MAC-based signatures
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 July 2024.
+   This Internet-Draft will expire on 20 July 2024.
 
 Copyright Notice
 
@@ -182,15 +182,21 @@ Table of Contents
 
 5.1.  Header parameter "alg"
 
-   The following values MUST be used for the "alg" header parameter: +--
-   ----------------+--------------------------------+-----------------
-   + | Algorithm Name | Algorithm Explanation | Implementation | | | |
-   Requirements | +------------------+--------------------------------+-
-   ----------------+ | ECDH-P256-HS256 | ECDH using NIST P-256 and |
-   Optional | | | HMAC using SHA-256 | | | ECDH-BP256-HS256 | ECDH using
-   BrainpoolP256r1 and | Optional | | | HMAC using SHA-256 | | +--------
-   ----------+--------------------------------+-----------------+ Other
-   algorithms SHOULD follow the naming ECDH-<elliptic curve domain
+   The following values MUST be used for the "alg" header parameter:
+
++--------------------+--------------------------------+----------------+
+| Algorithm Name     | Algorithm Explanation          | Implementation |
+|                    |                                | Requirements   |
++--------------------+--------------------------------+----------------+
+| ECDH-P256-CC-HS256 | ECDH using NIST P-256,         | Optional       |
+|                    | ConcatKDF and                  |                |
+|                    | HMAC using SHA-256             |                |
+| ECDH-BP256-CC-HS256| ECDH using BrainpoolP256r1,    | Optional       |
+|                    | ConcatKDF and                  |                |
+|                    | HMAC using SHA-256             |                |
++--------------------+--------------------------------+----------------+
+
+   Other algorithms SHOULD follow the naming ECDH-<elliptic curve domain
    parameters>-<KD algorithm>-<MAC algorithm>.
 
 5.2.  Header parameter "epk"
@@ -221,14 +227,28 @@ Table of Contents
 
 5.5.  Example JWT
 
-   The JWT/JWS header: { "typ" : "JWT", "alg" : "ECDH-P256-HS256", "x5c"
-   : <issuer certificate chain that signs the epk>, "epk" : <JWK used
-   for ECDH>, "kid" : <key ID of Verifying Party> }
+   The JWT/JWS header:
 
-   The JWT/JWS payload: { "iss" : "https://example.as.com", "iat" :
-   "1701870613", "given_name" : "Erika", "family_name" : "Mustermann" }
+   {
+       "typ" : "JWT",
+       "alg" : "ECDH-P256-HS256",
+       "x5c" : <issuer certificate chain that signs the epk>,
+       "epk" : <JWK used for ECDH>,
+       "kid" : <key ID of Verifying Party>
+   }
 
-   The JWT/JWS signature: base64-encoded MAC
+   The JWT/JWS payload:
+
+   {
+       "iss" : "https://example.as.com",
+       "iat" : "1701870613",
+       "given_name" : "Erika",
+       "family_name" : "Mustermann"
+   }
+
+   The JWT/JWS signature:
+
+   base64-encoded MAC
 
 6.  Security Considerations
 
